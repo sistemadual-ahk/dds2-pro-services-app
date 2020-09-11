@@ -1,6 +1,5 @@
 package server;
 
-import domain.middlewares.JwtMiddleware;
 import spark.Spark;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 import spark.utils.BooleanHelper;
@@ -15,6 +14,7 @@ public class Router {
                 .create()
                 .withDefaultHelpers()
                 .withHelper("isTrue", BooleanHelper.isTrue)
+                .withHelper("equals", new EqualsHelper())
                 .build();
     }
 
@@ -25,6 +25,5 @@ public class Router {
     }
 
     private static void configure(){
-
     }
 }
