@@ -15,10 +15,6 @@ public class ServicioOfrecido extends Persistente {
     @JoinColumn(name = "servicio_id")
     private Servicio servicio;
 
-    @ManyToOne
-    @JoinColumn(name = "prestador_id")
-    private Prestador prestador;
-
     @Column
     private String experiencia;
 
@@ -30,9 +26,8 @@ public class ServicioOfrecido extends Persistente {
     public ServicioOfrecido() {
     }
 
-    public ServicioOfrecido(Servicio servicio, Prestador prestador) {
+    public ServicioOfrecido(Servicio servicio) {
         this.servicio   = servicio;
-        this.prestador  = prestador;
         this.fotos      = new ArrayList<>();
     }
 
@@ -46,10 +41,6 @@ public class ServicioOfrecido extends Persistente {
 
     public String getExperiencia() {
         return experiencia;
-    }
-
-    public Prestador getPrestador() {
-        return prestador;
     }
 
     public List<String> getFotos() {

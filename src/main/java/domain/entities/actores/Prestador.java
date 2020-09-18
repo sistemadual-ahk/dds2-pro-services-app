@@ -48,7 +48,8 @@ public class Prestador extends Persistente {
     @Column(name = "telefono")
     private Set<Integer> telefonos;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "prestador", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "prestador_id")
     private List<ServicioOfrecido> serviciosOfrecidos;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
